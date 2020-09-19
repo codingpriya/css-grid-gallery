@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+$colors: #f1f1f1, rgb(234, 249, 224), rgb(255, 237, 237), rgb(255, 245, 215),
+        rgba(255, 141, 0, .11), #dff1ef, #e3e0f9, rgba(212, 218, 113, .30),
+        rgba(119, 177, 236, .17), rgba(184, 199, 191, .13);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+.container{
+    max-width: 90vw;
+    min-height: 100vh;
+    margin: 4rem auto;
+}
+
+h3{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;;
+}
+
+.cards-gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.card{
+    transition: transform .92s;
+
+    &:hover{
+        transform: translateY(-20px);
+    }
+
+    &__img img{
+        width: 100%;
+    }
+
+    &__info{
+        padding: 1rem;
+        h4{
+            padding: .5rem 0;
+            text-transform: uppercase;
+        }
+
+        p{
+            font-size: .88rem;
+            line-height: 1.6;
+        }
+    }
+
+    @for $i from 1 through 10{
+        &:nth-of-type(#{$i}){
+            background: nth($colors, $i);
+        }
+    }
+
+}
